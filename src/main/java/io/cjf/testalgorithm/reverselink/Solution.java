@@ -16,14 +16,20 @@ public class Solution {
     }
 
     public ListNode ReverseList(ListNode head) {
-        ListNode current = head;
         ListNode changeToNext = null;
 
-        while (current != null) {
-            ListNode bakNext = current.next;
-            current.next = changeToNext;
-            changeToNext = current;
-            current = bakNext;
+//        while (current != null) {
+//            ListNode bakNext = current.next;
+//            current.next = changeToNext;
+//            changeToNext = current;
+//            current = bakNext;
+//        }
+
+        ListNode bakNext;
+        for (ListNode c = head; c != null; c = bakNext) {
+            bakNext = c.next;
+            c.next = changeToNext;
+            changeToNext = c;
         }
 
         return changeToNext;
