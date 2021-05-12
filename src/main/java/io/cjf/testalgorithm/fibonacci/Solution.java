@@ -26,9 +26,9 @@ public class Solution {
             int f2 = 0;
             //todo calc f1f2
             for (int i = 0; i < n - 2; i++) {
-                int origF2 = f2;
-                f2 += f1;
-                f1 = origF2;
+                int origF1 = f1;
+                f1 += f2;
+                f2 = origF1;
             }
             return f1 + f2;
         } else {
