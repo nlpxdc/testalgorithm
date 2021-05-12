@@ -22,7 +22,15 @@ public class Solution {
         } else if (n == 1) {
             return 1;
         } else if (n > 1) {
-            return Fibonacci(n-1) + Fibonacci(n-2);
+            int f1 = 1;
+            int f2 = 0;
+            //todo calc f1f2
+            for (int i = 0; i < n - 2; i++) {
+                int origF2 = f2;
+                f2 += f1;
+                f1 = origF2;
+            }
+            return f1 + f2;
         } else {
             throw new Exception("invalid params");
         }
