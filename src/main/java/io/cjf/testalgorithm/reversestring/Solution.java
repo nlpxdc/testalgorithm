@@ -15,10 +15,11 @@ public class Solution {
      */
     public String solve (String str) {
         char[] chars = str.toCharArray();
-        char[] reverseChars = new char[chars.length];
-        for (int i = 0; i < chars.length; i++) {
-            reverseChars[chars.length - i - 1] = chars[i];
+        for (int left = 0, right = chars.length - 1; left < right; left++, right--) {
+            char t = chars[left];
+            chars[left] = chars[right];
+            chars[right] = t;
         }
-        return new String(reverseChars);
+        return new String(chars);
     }
 }
