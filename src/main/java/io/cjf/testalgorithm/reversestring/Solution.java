@@ -15,15 +15,10 @@ public class Solution {
      */
     public String solve (String str) {
         char[] chars = str.toCharArray();
-        Stack<Character> stack = new Stack<>();
-        for (char c : chars) {
-            stack.push(c);
-        }
         char[] reverseChars = new char[chars.length];
-        for (int i = 0; i < reverseChars.length; i++) {
-            reverseChars[i] = stack.pop();
+        for (int i = 0; i < chars.length; i++) {
+            reverseChars[chars.length - i - 1] = chars[i];
         }
-        String reverseStr = new String(reverseChars);
-        return reverseStr;
+        return new String(reverseChars);
     }
 }
