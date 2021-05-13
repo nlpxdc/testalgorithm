@@ -2,6 +2,14 @@ package io.cjf.testalgorithm.fibonacci;
 
 public class Solution {
 
+    private int[] fs = new int[40];
+
+    public Solution() throws Exception {
+        for (int i = 0; i < 40; i++) {
+            fs[i] = fibonacci(i);
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         Solution solution = new Solution();
 //        int fibonacci4 = solution.Fibonacci(-1);
@@ -16,7 +24,7 @@ public class Solution {
         }
     }
 
-    public int Fibonacci(int n) throws Exception {
+    public int fibonacci(int n) throws Exception {
         if (n == 0) {
             return 0;
         } else if (n == 1) {
@@ -34,5 +42,9 @@ public class Solution {
         } else {
             throw new Exception("invalid params");
         }
+    }
+
+    public int Fibonacci(int n) {
+        return fs[n];
     }
 }
