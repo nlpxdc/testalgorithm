@@ -22,7 +22,9 @@ public class Solution {
     }
 
     public double fibonacci(int n) {
-        return bs5 * (Math.pow(x, n) - Math.pow(y, n));
+        double v = bs5 * (Math.pow(x, n) - Math.pow(y, n));
+        System.out.println(v);
+        return v;
     }
 
     public long Fibonacci(int n) {
