@@ -2,53 +2,10 @@ package io.cjf.testalgorithm.fibonacci;
 
 public class Solution {
 
-    private int[] fs = new int[40];
-
-    public Solution() throws Exception {
-        fs[0] = 0;
-        fs[1] = 1;
-        fs[2] = 1;
-        fs[3] = 2;
-        fs[4] = 3;
-        fs[5] = 5;
-        fs[6] = 8;
-        fs[7] = 13;
-        fs[8] = 21;
-        fs[9] = 34;
-
-        fs[10] = 55;
-        fs[11] = 89;
-        fs[12] = 144;
-        fs[13] = 233;
-        fs[14] = 377;
-        fs[15] = 610;
-        fs[16] = 987;
-        fs[17] = 1597;
-        fs[18] = 2584;
-        fs[19] = 4181;
-
-        fs[20] = 6765;
-        fs[21] = 10946;
-        fs[22] = 17711;
-        fs[23] = 28657;
-        fs[24] = 46368;
-        fs[25] = 75025;
-        fs[26] = 121393;
-        fs[27] = 196418;
-        fs[28] = 317811;
-        fs[29] = 514229;
-
-        fs[30] = 832040;
-        fs[31] = 1346269;
-        fs[32] = 2178309;
-        fs[33] = 3524578;
-        fs[34] = 5702887;
-        fs[35] = 9227465;
-        fs[36] = 14930352;
-        fs[37] = 24157817;
-        fs[38] = 39088169;
-        fs[39] = 63245986;
-    }
+    private final double s5 = 2.23606797749979;
+    private final double bs5 = 0.447213595499958;
+    private final double x = 1.618033988749895;
+    private final double y = -0.6180339887498949;
 
     public static void main(String[] args) throws Exception {
         Solution solution = new Solution();
@@ -64,7 +21,11 @@ public class Solution {
         }
     }
 
+    public double fibonacci(int n) {
+        return bs5 * (Math.pow(x, n) - Math.pow(y, n));
+    }
+
     public int Fibonacci(int n) {
-        return fs[n];
+        return (int) fibonacci(n);
     }
 }
