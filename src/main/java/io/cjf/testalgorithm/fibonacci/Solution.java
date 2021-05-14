@@ -16,7 +16,7 @@ public class Solution {
 //        int fibonacci3 = solution.Fibonacci(3);
 //        int fibonacci4 = solution.Fibonacci(4);
         for (int i = 0; i < 100; i++) {
-            int v = solution.Fibonacci(i);
+            long v = solution.Fibonacci(i);
             System.out.println(String.format("n:%s, %s", i, v));
         }
     }
@@ -25,7 +25,7 @@ public class Solution {
         return bs5 * (Math.pow(x, n) - Math.pow(y, n));
     }
 
-    public int Fibonacci(int n) {
-        return (int) fibonacci(n);
+    public long Fibonacci(int n) {
+        return (long) fibonacci(n);
     }
 }
