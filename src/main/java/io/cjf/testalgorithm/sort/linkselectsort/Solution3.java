@@ -15,14 +15,15 @@ public class Solution3 {
 
     public ListNode sortInList (ListNode head) {
         // write code here
-        for (ListNode i = head; i != null; i = i.next) {
-            for (ListNode j = i.next; j != null; j = j.next) {
-                if (i.val > j.val) {
-                    int t = i.val;
-                    i.val = j.val;
-                    j.val = t;
-                }
-            }
+        int size = 0;
+        for (ListNode c = head; c != null; c = c.next) {
+            size++;
+        }
+        int[] numbers = new int[size];
+        ListNode c = head;
+        for (int i = 0; i < size; i++) {
+            numbers[i] = c.val;
+            c = c.next;
         }
         return head;
     }
