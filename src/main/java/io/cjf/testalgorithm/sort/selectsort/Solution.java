@@ -8,13 +8,18 @@ public class Solution {
     }
 
     public void selectSort(int[] numbers) {
-        int minIdx = 0;
         for (int i = 0; i < numbers.length; i++) {
+            int minIdx = i;
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[minIdx] > numbers[j]) {
                     minIdx = j;
                 }
             }
+//            if (minIdx != i) {
+//                int t = numbers[i];
+//                numbers[i] = numbers[minIdx];
+//                numbers[minIdx] = t;
+//            }
             int t = numbers[i];
             numbers[i] = numbers[minIdx];
             numbers[minIdx] = t;
