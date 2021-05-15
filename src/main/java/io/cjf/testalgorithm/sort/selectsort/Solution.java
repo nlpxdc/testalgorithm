@@ -15,14 +15,14 @@ public class Solution {
                     minIdx = j;
                 }
             }
-//            if (minIdx != i) {
-//                int t = numbers[i];
-//                numbers[i] = numbers[minIdx];
-//                numbers[minIdx] = t;
-//            }
-            int t = numbers[i];
-            numbers[i] = numbers[minIdx];
-            numbers[minIdx] = t;
+            if (minIdx != i) {
+                int t = numbers[i];
+                numbers[i] = numbers[minIdx];
+                numbers[minIdx] = t;
+            }
+//            int t = numbers[i];
+//            numbers[i] = numbers[minIdx];
+//            numbers[minIdx] = t;
         }
     }
 
