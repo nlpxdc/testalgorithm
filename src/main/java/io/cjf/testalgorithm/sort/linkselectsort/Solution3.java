@@ -25,6 +25,20 @@ public class Solution3 {
             numbers[i] = c.val;
             c = c.next;
         }
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] > numbers[j]) {
+                    int t = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = t;
+                }
+            }
+        }
+        c = head;
+        for (int i = 0; i < numbers.length; i++) {
+            c.val = numbers[i];
+            c = c.next;
+        }
         return head;
     }
 }
