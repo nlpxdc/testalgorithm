@@ -17,14 +17,13 @@ public class Solution {
 
     public ListNode sortInList (ListNode head) {
         // write code here
-        for (ListNode i = head; i != null; i = i.next) {
-            for (ListNode j = i.next; j != null; j = j.next) {
-                if (i.val > j.val) {
-                    int t = i.val;
-                    i.val = j.val;
-                    j.val = t;
-                }
-            }
+        LinkedList<Integer> numbers = new LinkedList<>();
+        for (ListNode c = head; c != null; c = c.next) {
+            numbers.add(c.val);
+        }
+        Collections.sort(numbers);
+        for (ListNode c = head; c != null; c = c.next) {
+            c.val = numbers.pop();
         }
         return head;
     }
