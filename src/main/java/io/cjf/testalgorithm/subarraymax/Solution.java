@@ -31,7 +31,7 @@ public class Solution {
         return maxsum;
     }
 
-    //without index
+    //with index
     public int maxsumofSubarray2 (int[] arr) {
         int maxsum = 0;
         for (int i = 0; i < arr.length; i++) {
