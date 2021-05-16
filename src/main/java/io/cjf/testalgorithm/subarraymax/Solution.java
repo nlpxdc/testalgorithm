@@ -5,16 +5,17 @@ public class Solution {
     public static void main(String[] args) {
         int[] arr = {1, -2, 3, 5, -2, 6, -1};
 
-        int maxsum = new Solution().maxsumofSubarray2(arr);
+        int maxsum = new Solution().maxsumofSubarray(arr);
     }
 
     /**
      * max sum of the subarray
+     *
      * @param arr int整型一维数组 the array
      * @return int整型
      */
     //with index
-    public int maxsumofSubarray3 (int[] arr) {
+    public int maxsumofSubarray3(int[] arr) {
         int maxsum = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = i; j < arr.length; j++) {
@@ -24,7 +25,7 @@ public class Solution {
                 }
                 if (t > maxsum) {
                     maxsum = t;
-                    System.out.println(String.format("maxsum: %s, i: %s, j: %s", maxsum, i, j-1));
+                    System.out.println(String.format("maxsum: %s, i: %s, j: %s", maxsum, i, j - 1));
                 }
             }
         }
@@ -32,7 +33,7 @@ public class Solution {
     }
 
     //with index
-    public int maxsumofSubarray2 (int[] arr) {
+    public int maxsumofSubarray2(int[] arr) {
         int maxsum = 0;
         for (int i = 0; i < arr.length; i++) {
             int t = 0;
@@ -44,6 +45,23 @@ public class Solution {
                 }
             }
 
+        }
+        return maxsum;
+    }
+
+    //without index i
+    public int maxsumofSubarray(int[] arr) {
+        int t = arr[0];
+        int maxsum = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (t < 0) {
+                t = 0;
+            }
+            t += arr[i];
+            if (maxsum < t) {
+                maxsum = t;
+                System.out.println(String.format("j: %s", i));
+            }
         }
         return maxsum;
     }
