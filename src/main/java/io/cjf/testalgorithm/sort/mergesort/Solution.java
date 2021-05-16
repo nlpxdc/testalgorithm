@@ -6,9 +6,28 @@ public class Solution {
         int[] left = {1, 3, 5, 7};
         int[] right = {2, 4, 6, 8};
 
+        int[] numbers = new int[]{2, 3, 1, 5,4,8,4,7};
+
         Solution solution = new Solution();
         int[] merge = solution.merge(left, right);
 
+        int[] sort = solution.mergeSort(numbers);
+
+    }
+
+    public int[] mergeSort(int[] numbers) {
+        int m = numbers.length / 2;
+        int[] left = new int[m];
+        int[] right = new int[numbers.length - m];
+        for (int i = 0; i < numbers.length; i++) {
+            if (i < m) {
+                left[i] = numbers[i];
+            } else {
+                right[i - m] = numbers[i];
+            }
+        }
+        int[] merge = merge(mergeSort(left), mergeSort(right));
+        return merge;
     }
 
     private int[] merge(int[] left, int[] right) {
