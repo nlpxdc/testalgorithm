@@ -8,19 +8,17 @@ public class Solution3 {
         Solution3 solution = new Solution3();
 
         solution.bubbleSort(numbers);
+        System.out.println("aaa");
         solution.bubbleSort(numbers2);
     }
 
     public void bubbleSort(int[] numbers) {
-        boolean beSort = false;
-        for (int i = 0; i < numbers.length && !beSort; i++) {
-            System.out.println(String.format("i: %s", i));
-            beSort = true;
-            for (int j = i + 1; j < numbers.length; j++) {
-                if (numbers[i] > numbers[j]) {
-                    beSort = false;
-                    int t = numbers[i];
-                    numbers[i] = numbers[j];
+        for (int i = numbers.length - 1; i > 0; i--) {
+            System.out.println(String.format("n: %s", i));
+            for (int j = 0; j < i; j++) {
+                if (numbers[j] > numbers[j+1]) {
+                    int t = numbers[j+1];
+                    numbers[j+1] = numbers[j];
                     numbers[j] = t;
                 }
             }
