@@ -46,6 +46,6 @@ public class Solution {
         return null;
     }
 
-    //todo O(nlgn), 排序，二分查找
+    //todo O(nlgn), 排序预处理，二分查找
     //todo O(n), 排序预处理，双指针
 }
