@@ -2,6 +2,10 @@ package io.cjf.testalgorithm;
 
 public class MyApp {
     public static void main(String[] args) {
+        String str1 = null;
+        String str2 = null;
+        boolean v = str1 == str2;
+
         double sqrt = Math.sqrt(5);
         double pi = Math.PI;
         String str = "aaaab";
