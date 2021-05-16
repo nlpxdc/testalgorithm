@@ -53,14 +53,19 @@ public class Solution {
     public int maxsumofSubarray(int[] arr) {
         int t = arr[0];
         int maxsum = arr[0];
-        for (int i = 0; i < arr.length; i++) {
+        int first = 0;
+        int last = 0;
+        for (int i = 1; i < arr.length; i++) {
+            t += arr[i];
             if (t < 0) {
                 t = 0;
+                first = i + 1;
+                System.out.println(String.format("i: %s", first));
             }
-            t += arr[i];
             if (maxsum < t) {
                 maxsum = t;
-                System.out.println(String.format("j: %s", i));
+                last = i;
+                System.out.println(String.format("maxsum: %s, j: %s",  maxsum, last));
             }
         }
         return maxsum;
