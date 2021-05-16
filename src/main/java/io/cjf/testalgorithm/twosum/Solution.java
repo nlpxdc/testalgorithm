@@ -26,6 +26,7 @@ public class Solution {
      * @param target int整型
      * @return int整型一维数组
      */
+    //O(n2)
     public int[] twoSum (int[] numbers, int target) {
         // write code here
         for (int i = 0; i < numbers.length; i++) {
@@ -44,4 +45,7 @@ public class Solution {
         }
         return null;
     }
+
+    //todo O(nlgn), 排序，二分查找
+    //todo O(n), 排序预处理，双指针
 }
