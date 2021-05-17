@@ -1,9 +1,14 @@
-package io.cjf.testalgorithm.quicksort;
-
-import java.util.*;
+package io.cjf.testalgorithm.sort.quicksort;
 
 
 public class Solution {
+
+    public static void main(String[] args) {
+        int[] numbers = new int[]{2, 3, 1, 5,4,8,4,7};
+
+        int[] sort = new Solution().MySort(numbers);
+    }
+
     /**
      * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
      * 将给定数组排序
@@ -42,7 +47,7 @@ public class Solution {
     private void swap(int[] arr, int i, int j) {
         int t = arr[i];
         arr[i] = arr[j];
-        arr[j] = arr[i];
+        arr[j] = t;
     }
 
 }
