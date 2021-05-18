@@ -1,5 +1,6 @@
 package io.cjf.testalgorithm.tree.dfs;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -73,6 +74,7 @@ public class Solution {
                     stack.push(node.right);
                 }
             }
+            Collections.reverse(ret);
         }
 
         return ret;
