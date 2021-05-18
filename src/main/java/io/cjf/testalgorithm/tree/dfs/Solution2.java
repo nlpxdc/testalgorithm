@@ -1,6 +1,6 @@
 package io.cjf.testalgorithm.tree.dfs;
 
-public class Solution {
+public class Solution2 {
 
     public static void main(String[] args) {
 //        TreeNode n3 = new TreeNode(3);
@@ -21,7 +21,7 @@ public class Solution {
         n1.left = n2;
         n1.right = n3;
 
-        Solution solution = new Solution();
+        Solution2 solution = new Solution2();
         solution.preTraverse(n1);
         System.out.println();
         solution.inTraverse(n1);
