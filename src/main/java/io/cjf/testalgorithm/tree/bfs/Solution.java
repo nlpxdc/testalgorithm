@@ -1,6 +1,6 @@
 package io.cjf.testalgorithm.tree.bfs;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Solution {
 
@@ -17,6 +17,9 @@ public class Solution {
         n20.left = n15;
         n20.right = n7;
 
+        Solution solution = new Solution();
+        ArrayList<ArrayList<Integer>> levels = solution.levelOrder(n3);
+
     }
 
     /**
@@ -25,7 +28,22 @@ public class Solution {
      * @return int整型ArrayList<ArrayList<>>
      */
     public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
-        // write code here
-        return null;
+        ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
+        for (List<TreeNode> cs = Collections.singletonList(root); cs.size() > 0; ) {
+            ArrayList<Integer> level = new ArrayList<>();
+            LinkedList<TreeNode> nextLevel = new LinkedList<>();
+            for (TreeNode c : cs) {
+                level.add(c.val);
+                if (c.left != null) {
+                    nextLevel.add(c.left);
+                }
+                if (c.right != null) {
+                    nextLevel.add(c.right);
+                }
+            }
+            levels.add(level);
+            cs = nextLevel;
+        }
+        return levels;
     }
 }
