@@ -1,5 +1,10 @@
 package io.cjf.testalgorithm.tree.dfs;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class Solution {
 
     public static void main(String[] args) {
@@ -22,36 +27,35 @@ public class Solution {
         n1.right = n3;
 
         Solution solution = new Solution();
-        solution.preTraverse(n1);
-        System.out.println();
-        solution.inTraverse(n1);
-        System.out.println();
-        solution.postTraverse(n1);
-        System.out.println();
+
+        int[][] ints = solution.threeOrders(n1);
 
     }
 
-    private void preTraverse(TreeNode root) {
+    private void preTraverse(TreeNode root, List<Integer> preList) {
         if (root != null) {
             System.out.print(root.val);
-            preTraverse(root.left);
-            preTraverse(root.right);
+            preList.add(root.val);
+            preTraverse(root.left, preList);
+            preTraverse(root.right, preList);
         }
     }
 
-    private void inTraverse(TreeNode root) {
+    private void inTraverse(TreeNode root, List<Integer> inList) {
         if (root != null) {
-            inTraverse(root.left);
+            inTraverse(root.left, inList);
             System.out.print(root.val);
-            inTraverse(root.right);
+            inList.add(root.val);
+            inTraverse(root.right, inList);
         }
     }
 
-    private void postTraverse(TreeNode root) {
+    private void postTraverse(TreeNode root, List<Integer> postList) {
         if (root != null) {
-            postTraverse(root.left);
-            postTraverse(root.right);
+            postTraverse(root.left, postList);
+            postTraverse(root.right, postList);
             System.out.print(root.val);
+            postList.add(root.val);
         }
     }
     
@@ -62,7 +66,15 @@ public class Solution {
      */
     public int[][] threeOrders (TreeNode root) {
         // write code here
-        preTraverse(root);
-        return null;
+        LinkedList<Integer> preList = new LinkedList<>();
+        LinkedList<Integer> inList = new LinkedList<>();
+        LinkedList<Integer> postList = new LinkedList<>();
+        preTraverse(root, preList);
+        inTraverse(root, inList);
+        postTraverse(root, postList);
+        int[] preAry = preList.stream().mapToInt(value -> value).toArray();
+        int[] inAry = inList.stream().mapToInt(value -> value).toArray();
+        int[] postAry = postList.stream().mapToInt(value -> value).toArray();
+        return new int[][]{preAry, inAry, postAry};
     }
 }
