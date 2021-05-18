@@ -28,6 +28,9 @@ public class Solution {
      * @return int整型ArrayList<ArrayList<>>
      */
     public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
         ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
         for (List<TreeNode> cs = Collections.singletonList(root); cs.size() > 0; ) {
             ArrayList<Integer> level = new ArrayList<>();
