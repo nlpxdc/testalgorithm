@@ -26,7 +26,8 @@ public class Solution {
 //        n1.right = n3;
 
         Solution solution = new Solution();
-        List<Integer> integers = solution.preTraverse(n3);
+//        List<Integer> integers = solution.preTraverse(n3);
+        List<Integer> integers = solution.postTraverse(n3);
 
 //        int[][] ints = solution.threeOrders(n3);
 
@@ -57,14 +58,25 @@ public class Solution {
 //            inTraverse(root.right, inList);
 //        }
 //    }
-//
-//    private List<Integer> postTraverse(TreeNode root) {
-//        if (root != null) {
-//            postTraverse(root.left, postList);
-//            postTraverse(root.right, postList);
-//            postList.add(root.val);
-//        }
-//    }
+
+    private List<Integer> postTraverse(TreeNode root) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root != null) {
+            for (stack.push(root); !stack.isEmpty(); ) {
+                TreeNode node = stack.pop();
+                ret.add(node.val);
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+            }
+        }
+
+        return ret;
+    }
     
     /**
      *
