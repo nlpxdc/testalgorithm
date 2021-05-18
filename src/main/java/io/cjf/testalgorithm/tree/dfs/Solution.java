@@ -1,9 +1,7 @@
 package io.cjf.testalgorithm.tree.dfs;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Solution {
 
