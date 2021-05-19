@@ -69,7 +69,7 @@ public class Solution {
         if (root != null) {
             for (stack.push(root); !stack.isEmpty(); ) {
                 TreeNode node = stack.pop();
-                ret.add(node.val);
+                ret.addFirst(node.val);
                 if (node.left != null) {
                     stack.push(node.left);
                 }
@@ -77,7 +77,6 @@ public class Solution {
                     stack.push(node.right);
                 }
             }
-            Collections.reverse(ret);
         }
 
         return ret;
