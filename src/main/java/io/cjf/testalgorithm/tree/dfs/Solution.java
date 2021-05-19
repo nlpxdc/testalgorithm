@@ -50,7 +50,8 @@ public class Solution {
         LinkedList<Integer> ret = new LinkedList<>();
         if (root != null) {
             Stack<TreeNode> toVisits = new Stack<>();
-            for (toVisits.push(root); !toVisits.isEmpty(); ) {
+            toVisits.push(root);
+            while (!toVisits.isEmpty()) {
                 TreeNode node = toVisits.pop();
                 ret.add(node.val);
                 if (node.right != null) {
@@ -69,7 +70,7 @@ public class Solution {
         if (root != null) {
             Stack<TreeNode> toVisits = new Stack<>();
             TreeNode c = root;
-            while (!toVisits.isEmpty() || c != null) {
+            while (c != null || !toVisits.isEmpty()) {
                 if (c != null) {
                     toVisits.push(c);
                     c = c.left;
@@ -79,16 +80,16 @@ public class Solution {
                     c = c.right;
                 }
             }
-
         }
         return ret;
     }
 
     private List<Integer> postTraverse(TreeNode root) {
         LinkedList<Integer> ret = new LinkedList<>();
-        Stack<TreeNode> stack = new Stack<>();
         if (root != null) {
-            for (stack.push(root); !stack.isEmpty(); ) {
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
                 TreeNode node = stack.pop();
                 ret.addFirst(node.val);
                 if (node.left != null) {
