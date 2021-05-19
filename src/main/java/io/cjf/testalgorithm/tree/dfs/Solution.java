@@ -36,16 +36,16 @@ public class Solution {
 
     private List<Integer> preTraverse(TreeNode root) {
         LinkedList<Integer> ret = new LinkedList<>();
-        Stack<TreeNode> stack = new Stack<>();
         if (root != null) {
-            for (stack.push(root); !stack.isEmpty(); ) {
-                TreeNode node = stack.pop();
+            Stack<TreeNode> toVisits = new Stack<>();
+            for (toVisits.push(root); !toVisits.isEmpty(); ) {
+                TreeNode node = toVisits.pop();
                 ret.add(node.val);
                 if (node.right != null) {
-                    stack.push(node.right);
+                    toVisits.push(node.right);
                 }
                 if (node.left != null) {
-                    stack.push(node.left);
+                    toVisits.push(node.left);
                 }
             }
         }
@@ -53,11 +53,14 @@ public class Solution {
     }
 
 //    private List<Integer> inTraverse(TreeNode root) {
+//        LinkedList<Integer> ret = new LinkedList<>();
+//        Stack<TreeNode> stack = new Stack<>();
 //        if (root != null) {
-//            inTraverse(root.left, inList);
-//            inList.add(root.val);
-//            inTraverse(root.right, inList);
+//            for (int i = 0; i <; i++) {
+//
+//            }
 //        }
+//        return ret;
 //    }
 
     private List<Integer> postTraverse(TreeNode root) {
